@@ -14,12 +14,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: SplashScreen(
-        seconds: 15,
-        backgroundColor: Colors.black,
-        image: Image.asset('assets/launch_image.png'),
-        loaderColor: Colors.white,
-        photoSize: 150.0,
+        seconds: 5,
+        backgroundColor: Colors.white,
+        image: Image.asset('assets/launch_gif.gif'),
+        photoSize: 100.0,
         navigateAfterSeconds: Main(),
+        loaderColor: Colors.blue,
       )
     );
   }
@@ -31,7 +31,12 @@ class Main extends StatelessWidget {
       appBar: AppBar(
         title: Text("Home"),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.blueAccent,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        backgroundColor: Colors.green[400],
+        child: Icon(Icons.add),
       )
     );
   }
