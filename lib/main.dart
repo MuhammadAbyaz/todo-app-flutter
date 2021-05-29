@@ -25,6 +25,28 @@ class _MyAppState extends State<MyApp> {
   }
 }
 class Main extends StatelessWidget {
+  Widget _buildPopupDialog(BuildContext context) {
+  return new AlertDialog(
+    title: Text('Add TODO'),
+    content: new Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        TextField(
+        ),
+      ],
+    ),
+    actions: <Widget>[
+       new FlatButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        child: FlatButton(onPressed: (){}, child: Text("Add"), color: Colors.green,),
+      ),
+      new FlatButton(onPressed: (){}, child: FlatButton(onPressed: (){}, child: Text("Cancel")))
+    ],
+  );
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +56,9 @@ class Main extends StatelessWidget {
         backgroundColor: Colors.blueAccent,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          showDialog(context: context, builder: (BuildContext context) =>_buildPopupDialog(context),);
+        },
         backgroundColor: Colors.green[400],
         child: Icon(Icons.add),
       )
